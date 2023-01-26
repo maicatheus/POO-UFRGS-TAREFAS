@@ -1,14 +1,18 @@
 package src.model;
 
 public class ExteriorComEsconderijo extends Exterior implements IEsconderijo {
-    public String esconderijo;
+    private String nomeEsconderijo;
 
     public ExteriorComEsconderijo(String nome, Boolean quente, String esconderijo) {
         super(nome, quente);
-        this.esconderijo = esconderijo;
+        this.nomeEsconderijo = esconderijo;
     }
 
     public String getNomeEsconderijo() {
-        return this.esconderijo;
+        return this.nomeEsconderijo;
+    }
+
+    public void setNomeEsconderijo(String nomeEsconderijo) {
+        this.nomeEsconderijo = nomeEsconderijo;
     }
 }

@@ -45,22 +45,22 @@ public class EscondeEsconde {
         this.quintalFundos = new ExteriorComPorta("Quintal dos Fundos", true, "porta de tela");
         this.jardim = new ExteriorComEsconderijo("Jardim", false, "no galpão");
         this.calcada = new ExteriorComEsconderijo("Calçada", true, "na garagem");
-        this.salaEstar.saidas = new Local[]{this.salaJantar, this.escadas};
-        this.salaJantar.saidas = new Local[]{this.salaEstar, this.cozinha};
-        this.cozinha.saidas = new Local[]{this.salaJantar};
-        this.escadas.saidas = new Local[]{this.salaEstar, this.hallSuperior};
-        this.hallSuperior.saidas = new Local[]{this.escadas, this.banheiro, this.quartoMenor, this.quartoPrincipal};
-        this.banheiro.saidas = new Local[]{this.hallSuperior};
-        this.quartoPrincipal.saidas = new Local[]{this.hallSuperior};
-        this.quartoMenor.saidas = new Local[]{this.hallSuperior};
-        this.quintalFrente.saidas = new Local[]{this.quintalFundos, this.jardim, this.calcada};
-        this.quintalFundos.saidas = new Local[]{this.quintalFrente, this.jardim, this.calcada};
-        this.jardim.saidas = new Local[]{this.quintalFrente, this.quintalFundos};
-        this.calcada.saidas = new Local[]{this.quintalFrente, this.quintalFundos};
-        this.salaEstar.localPorta = this.quintalFrente;
-        this.quintalFrente.localPorta = this.salaEstar;
-        this.cozinha.localPorta = this.quintalFundos;
-        this.quintalFundos.localPorta = this.cozinha;
+        this.salaEstar.setSaidas(new Local[]{this.salaJantar, this.escadas});
+        this.salaJantar.setSaidas(new Local[]{this.salaEstar, this.cozinha});
+        this.cozinha.setSaidas(new Local[]{this.salaJantar});
+        this.escadas.setSaidas(new Local[]{this.salaEstar, this.hallSuperior});
+        this.hallSuperior.setSaidas(new Local[]{this.escadas, this.banheiro, this.quartoMenor, this.quartoPrincipal});
+        this.banheiro.setSaidas(new Local[]{this.hallSuperior});
+        this.quartoPrincipal.setSaidas(new Local[]{this.hallSuperior});
+        this.quartoMenor.setSaidas(new Local[]{this.hallSuperior});
+        this.quintalFrente.setSaidas(new Local[]{this.quintalFundos, this.jardim, this.calcada});
+        this.quintalFundos.setSaidas(new Local[]{this.quintalFrente, this.jardim, this.calcada});
+        this.jardim.setSaidas(new Local[]{this.quintalFrente, this.quintalFundos});
+        this.calcada.setSaidas(new Local[]{this.quintalFrente, this.quintalFundos});
+        this.salaEstar.setLocalPorta(this.quintalFrente);
+        this.quintalFrente.setLocalPorta(this.salaEstar);
+        this.cozinha.setLocalPorta(this.quintalFundos);
+        this.quintalFundos.setLocalPorta(this.cozinha);
     }
 
     public void finalizarJogo() {
@@ -123,8 +123,8 @@ public class EscondeEsconde {
             System.out.println("Ir Para:");
 
             int pos;
-            for(pos = 0; pos < this.localizacaoAtual.saidas.length; ++pos) {
-                System.out.println("\t" + (pos + 100) + " - " + this.localizacaoAtual.saidas[pos].nome);
+            for(pos = 0; pos < this.localizacaoAtual.getSaidas().length; ++pos) {
+                System.out.println("\t" + (pos + 100) + " - " + this.localizacaoAtual.getSaidas()[pos].getNome());
             }
 
             if (this.localizacaoAtual instanceof IPortaExterna) {
@@ -141,7 +141,7 @@ public class EscondeEsconde {
             int opcao = this.leitor.nextInt();
             if (opcao >= 100) {
                 pos = opcao - 100;
-                this.mover(this.localizacaoAtual.saidas[pos]);
+                this.mover(this.localizacaoAtual.getSaidas()[pos]);
             } else if (opcao == 2 && ativa2) {
                 this.mover(((IPortaExterna)this.localizacaoAtual).getLocalPorta());
             } else if (opcao == 3 && ativa3) {

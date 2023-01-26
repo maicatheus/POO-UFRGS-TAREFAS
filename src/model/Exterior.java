@@ -1,10 +1,18 @@
 package src.model;
 
 public class Exterior extends Local {
-    public Boolean quente;
+    protected Boolean quente;
 
     public Exterior(String nome, Boolean quente) {
         super(nome);
+        this.quente = quente;
+    }
+
+    public Boolean getQuente() {
+        return quente;
+    }
+
+    public void setQuente(Boolean quente) {
         this.quente = quente;
     }
 

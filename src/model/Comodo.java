@@ -1,10 +1,18 @@
 package src.model;
 
 public class Comodo extends Local {
-    public String decoracao;
+    protected String decoracao;
 
     public Comodo(String nome, String decoracao) {
         super(nome);
+        this.decoracao = decoracao;
+    }
+
+    public String getDecoracao() {
+        return decoracao;
+    }
+
+    public void setDecoracao(String decoracao) {
         this.decoracao = decoracao;
     }
 
