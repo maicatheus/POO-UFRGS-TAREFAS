@@ -4,7 +4,13 @@ package src;
 import src.model.*;
 
 import java.util.Scanner;
-
+/**
+ *
+ * @author (Luiz Moura - 326495 )
+ * @author (Matheus Maica - 264449)
+ * @version (11/22)
+ *
+ */
 public class EscondeEsconde {
     int movimentos;
     Local localizacaoAtual;
