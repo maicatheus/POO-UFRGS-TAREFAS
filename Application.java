@@ -4,6 +4,10 @@ import src.classes.XicaraCafe;
 
 import java.util.Scanner;
 
+/**
+ * @author Matheus Maica
+ *
+ * */
 public class Application {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
